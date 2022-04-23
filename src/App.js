@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import SideBar from "./components/SideBar";
+import { Route, Routes } from "react-router-dom";
+import Simple from "./components/maps/Simple";
+import Home from "./components/Home";
+import Markers from "./components/maps/Markers";
+import ClickableMarkers from "./components/maps/ClickableMarkers";
+import Polygon from "./components/maps/Polygon";
+import Polyline from "./components/maps/Polyline";
+import Circle from "./components/maps/Circle";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-[100vh] w-[100vw] flex flex-row">
+      <SideBar />
+      <Routes>
+        <Route element={<Home />} path="/" />
+        <Route element={<Simple />} path="/simple" />
+        <Route element={<Markers />} path="/markers" />
+        <Route element={<ClickableMarkers />} path="/clickable-markers" />
+        <Route element={<Polygon />} path="/polygon" />
+        <Route element={<Polyline />} path="/polyline" />
+        <Route element={<Circle />} path="/circle" />
+      </Routes>
     </div>
   );
 }
